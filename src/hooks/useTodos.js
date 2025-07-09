@@ -1,13 +1,23 @@
-import { useState, useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { getStorage, setStorage } from '../utils/storage'
 
 export function useTodos() {
+    const [todos, setTodos] = useState(getStorage)
+
+    useEffect(() => {
+        setStorage(todos)
+    }, [todos])
+
     const lastId = useRef(4)
 
-    const [todos, setTodos] = useState([
-        { id: 1, text: '공부하기', checked: true },
-        { id: 2, text: '코딩하기', checked: false },
-        { id: 3, text: '운동하기', checked: false },
-    ])
+    useEffect(() => {
+        if (todos.length > 0) {
+            const maxId = Math.max(...todos.map((todo) => todo.id))
+            lastId.current = maxId + 1
+        } else {
+            lastId.current = 1
+        }
+    }, [todos])
 
     const addTodo = (text) => {
         const todo = { id: lastId.current, text, checked: false }
@@ -23,6 +33,7 @@ export function useTodos() {
     const toggleTodo = (seletedId) => {
         const updateTodos = todos.map((todo) => (todo.id == seletedId ? { ...todo, checked: !todo.checked } : todo))
         setTodos(updateTodos)
+        console.log(toggleTodo)
     }
 
     return { todos, addTodo, removeTodo, toggleTodo }
