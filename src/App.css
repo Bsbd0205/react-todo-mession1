@@ -1,0 +1,108 @@
+body {
+    font-family: 'Arial', sans-serif;
+    --tw-text-opacity: 1;
+    background-color: rgba(238, 242, 255, var(--tw-text-opacity));
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 50px;
+}
+
+/* 전체 앱 박스 */
+.todo-app {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* 제목 */
+.title {
+    --tw-text-opacity: 1;
+    color: rgba(248, 113, 113, var(--tw-text-opacity));
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 3rem;
+}
+
+/* 입력 섹션 */
+.input_section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input_section input[type='text'] {
+    flex: 1;
+    min-width: 0; /* 가장 중요!! flex 안에서 오버플로 방지 */
+    padding: 12px;
+    border: 1px solid #999;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    white-space: nowrap; /* 입력창도 줄바꿈 X */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 300;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.input_btn {
+    height: 50px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.input_btn:hover {
+    background-color: #459448;
+}
+
+/* 할 일 리스트 */
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: #f9f9f9;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    margin-right: 40px;
+}
+
+.todo-item span {
+    font-size: 18px;
+    color: #474747;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    font-weight: 700;
+}
+
+.delete_btn {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.delete_btn:hover {
+    background-color: #e60000;
+}

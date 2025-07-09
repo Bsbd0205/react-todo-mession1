@@ -7,9 +7,11 @@ function Form({ addTodo }) {
 
     return (
         <>
-            <form onSubmit={handleOnSubmit}>
-                <input type="text" name="todo" />
-                <button type="submit">등록</button>
+            <form onSubmit={handleOnSubmit} className="input_section">
+                <input type="text" name="todo" className="input_section input" />
+                <button type="submit" className="input_btn">
+                    등록
+                </button>
             </form>
         </>
     )
